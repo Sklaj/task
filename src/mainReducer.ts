@@ -1,18 +1,11 @@
 import {combineReducers} from 'redux'
+import {ISearch, searchReducer} from "./ts/redux/searchReducer";
 
 //Main Reducer
 export interface IStore {
-    // signInForm: ISignInForm;
-    // addPetForm: IAddPetForm;
-    // userProfile: IUserProfile;
-    // pets: IPet[]
+    searchForm: ISearch
 }
 
 export const mainReducer = combineReducers({
-// /*    //forms
-//     signInForm: signInFormReducer,
-//     addPetForm: addPetFormReducer,
-//     //data
-//     userProfile: userReducer,
-//     pets: petsReducer*/
+    searchForm: searchReducer
 });
