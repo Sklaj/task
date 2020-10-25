@@ -1,32 +1,32 @@
 import * as React from "react";
-// import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {IStore} from "../../mainReducer";
+import {fetchVideos} from "../actions/fetchVideos";
+import {useEffect} from "react";
 
 export const Topbar = () => {
-
     const dispatch = useDispatch();
     const formValues = useSelector((store: IStore) => store.searchForm);
-
-    // const [search, setSearch] = useState("");
-
-    // console.log(search);
+    const searchResults = useSelector((store: IStore) => store.searchResults);
 
     const onSearchValueChange = (value: string) => {
-
-        const action = {
-            type: "UPDATE_FORM",
-            searchValue: value
-        }
-
-        dispatch(action);
+        dispatch({type: "UPDATE_FORM", searchValue: value});
     }
 
-    console.log(formValues);
+    const onSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log(formValues);
+        fetchVideos(dispatch);
+    }
+
+    useEffect(() => {
+        console.log(searchResults);
+    }, [searchResults]);
+
 
     return (
         <header>
-            <form>
+            <form onSubmit={(e) => onSubmit(e)}>
                 <input onChange={(e) => onSearchValueChange(e.target.value)}/>
 
                 <button type="submit">
