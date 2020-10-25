@@ -1,7 +1,7 @@
 import React from 'react';
 import './css/App.scss';
 import {Topbar} from "./ts/components/Topbar";
-import {Content} from "./ts/components/Contant";
+import {Content} from "./ts/components/Content";
 import {Sidebar} from "./ts/components/Sidebar";
 
 
