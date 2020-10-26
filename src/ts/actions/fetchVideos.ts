@@ -33,7 +33,7 @@ export interface IVideo {
 
 export const fetchVideos = (dispatch: Dispatch, searchPhrase: string) => {
     const baseUrl = "https://www.googleapis.com/youtube/v3";
-    const apiKey = "AIzaSyBxI-4ZJ9ATtGpDPuxcx8LfIIQQEvPGYdQ";
+    const apiKey = "AIzaSyDQrJvjYBJlX4Yk5V3XivqBJ8Du53zCjGw";
     const pageSize = 20;
     const phrase = replace(searchPhrase, " ", "+");
     const searchUrl = `/search?part=snippet&type=video&videoCaption=closedCaption&videoEmbeddable=true&q=${phrase}&maxResults=${pageSize}&key=${apiKey}`
@@ -44,7 +44,7 @@ export const fetchVideos = (dispatch: Dispatch, searchPhrase: string) => {
     fetch(url)
         .then((res: any) => res.json())
         .then((res) => {
-            dispatch({type: "UPDATE", data: res.items})
+            dispatch({type: "results/UPDATE", data: res.items})
             dispatch({type: "SUCCESS"})
         })
         .catch(() => {

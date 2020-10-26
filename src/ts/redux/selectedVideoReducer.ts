@@ -8,7 +8,7 @@ const searchInitialState = {
 
 export const selectedVideoReducer = function (selectedVideo = searchInitialState, action: any) {
     switch (action.type) {
-        case "UPDATE":
+        case "selected/UPDATE":
             return {
                 selectedVideo: action.data
             };

@@ -4,7 +4,9 @@ import {IStore} from "../../mainReducer";
 
 export const Content = () => {
 
-    const selectedVideo = useSelector((store: IStore) => store.selectedVideo.selectedVideo);
+    const selectedVideo = useSelector((store: IStore) => store.selectedVideo);
+
+    console.log(selectedVideo);
 
     const ytEmbedLink = "https://www.youtube.com/embed/";
 

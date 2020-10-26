@@ -1,18 +1,18 @@
 import {IVideo} from "../actions/fetchVideos";
 
 export interface ISearchResults {
-    searchResults: IVideo[] | null
+    results: IVideo[] | null
 }
 
 const searchResultsInitialState = {
-    searchResults: null
+    results: null
 }
 
-export const searchResultsReducer = function (results = searchResultsInitialState, action: any) {
+export const searchResultsReducer = function (results: ISearchResults = searchResultsInitialState, action: any) {
     switch (action.type) {
-        case "UPDATE":
+        case "results/UPDATE":
             return {
-                searchResults: action.data
+                results: action.data
             };
         default:
             return results;
