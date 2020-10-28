@@ -6,14 +6,14 @@ import {
     searchResultsReducer,
     searchResultsStatus
 } from "./ts/redux/searchResultsReducer";
-import {ISelectedVideo, selectedVideoReducer} from "./ts/redux/selectedVideoReducer";
+import {selectedVideoReducer} from "./ts/redux/selectedVideoReducer";
 
 //Main Reducer
 export interface IStore {
     searchForm: ISearch;
     searchResults: ISearchResults;
     searchResultsStatus: ISearchResultsStatus;
-    selectedVideo: ISelectedVideo;
+    selectedVideo: string;
 }
 
 export const mainReducer = combineReducers({

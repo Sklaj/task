@@ -11,14 +11,14 @@ export interface IVideo {
     kind: "youtube#searchResult";
     etag: string;
     id: {
-        "kind": string;
+        // "kind": string;
         "videoId": string;
-        "channelId": string;
-        "playlistId": string;
+        // "channelId": string;
+        // "playlistId": string;
     };
     snippet: {
-        publishedAt: string;
-        channelId: string;
+        // publishedAt: string;
+        // channelId: string;
         title: string;
         description: string;
         thumbnails: {
@@ -26,17 +26,17 @@ export interface IVideo {
             high: IVideoThumbnail;
             medium: IVideoThumbnail;
         },
-        channelTitle: string;
-        liveBroadcastContent: string;
+        // channelTitle: string;
+        // liveBroadcastContent: string;
     }
 }
 
 export const fetchVideos = (dispatch: Dispatch, searchPhrase: string) => {
     const baseUrl = "https://www.googleapis.com/youtube/v3";
     const apiKey = "AIzaSyDQrJvjYBJlX4Yk5V3XivqBJ8Du53zCjGw";
-    const pageSize = 20;
+    const pageSize = 3;
     const phrase = replace(searchPhrase, " ", "+");
-    const searchUrl = `/search?part=snippet&type=video&videoCaption=closedCaption&videoEmbeddable=true&q=${phrase}&maxResults=${pageSize}&key=${apiKey}`
+    const searchUrl = `/search?&fields=items(id(videoId),snippet(title,description,thumbnails(medium)))&part=snippet&type=video&videoCaption=closedCaption&videoEmbeddable=true&q=${phrase}&maxResults=${pageSize}&key=${apiKey}`
     const url = `${baseUrl}${searchUrl}`
 
     dispatch({type: "PENDING"})

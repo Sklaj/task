@@ -3,7 +3,6 @@ import {useSelector} from "react-redux";
 import {IStore} from "../../mainReducer";
 
 export const Content = () => {
-
     const selectedVideo = useSelector((store: IStore) => store.selectedVideo);
 
     console.log(selectedVideo);
