@@ -27,15 +27,15 @@ const searchResultsStatusInitialState = null;
 
 export const searchResultsStatus = function (status = searchResultsStatusInitialState, action: any) {
     switch (action.type) {
-        case "PENDING":
+        case "results/PENDING":
             return {
                 status: "pending"
             };
-        case "SUCCESS":
+        case "results/SUCCESS":
             return {
                 status: "success"
             };
-        case "FAILED":
+        case "results/FAILED":
             return {
                 status: "failed"
             };

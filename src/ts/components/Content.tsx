@@ -7,11 +7,11 @@ export const Content = () => {
 
     console.log(selectedVideo);
 
-    const ytEmbedLink = "https://www.youtube.com/embed/";
+    const ytEmbedLink = `https://www.youtube.com/embed/${selectedVideo}`;
 
     return (
         <section>
-            <iframe width="560" height="315" src={`${ytEmbedLink}${selectedVideo}`} frameBorder="0"
+            <iframe width="560" height="315" src={ytEmbedLink} frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen/>
         </section>
